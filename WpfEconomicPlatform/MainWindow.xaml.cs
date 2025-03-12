@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,18 @@ namespace WpfEconomicPlatform
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void openRegistration(object send, RoutedEventArgs e)
+        {
+            registration taskWindow = new registration();
+            taskWindow.ShowDialog();
+        }
+
+        private void test (object send, RoutedEventArgs e)
+        {
+            IncomesOutcomes mainWindow = new IncomesOutcomes();
+            mainWindow.ShowDialog();
         }
     }
 }

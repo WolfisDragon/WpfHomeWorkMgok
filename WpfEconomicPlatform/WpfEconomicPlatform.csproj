@@ -55,6 +55,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="addCategory.xaml.cs">
+      <DependentUpon>addCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addIncomesOutcomes.xaml.cs">
+      <DependentUpon>addIncomesOutcomes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="categoryList.xaml.cs">
+      <DependentUpon>categoryList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IncomesOutcomes.xaml.cs">
+      <DependentUpon>IncomesOutcomes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="registration.xaml.cs">
+      <DependentUpon>registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="reportGraph.xaml.cs">
+      <DependentUpon>reportGraph.xaml</DependentUpon>
+    </Compile>
+    <Page Include="addCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addIncomesOutcomes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="categoryList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IncomesOutcomes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +101,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="reportGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

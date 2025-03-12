@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfEconomicPlatform.registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfEconomicPlatform"
+        mc:Ignorable="d"
+        Title="регестрация" Height="450" Width="800">
+    <Grid Height="434" VerticalAlignment="Bottom">
+        <TextBox HorizontalAlignment="Left" Height="17" Margin="320,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBox HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" VerticalAlignment="Center" Width="160" Margin="320,0,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="17" Margin="320,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBlock HorizontalAlignment="Left" Margin="320,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Text="ФИО:"/>
+        <TextBlock HorizontalAlignment="Left" Margin="320,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="П"/><Run Text="очта"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="320,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Л"/><Run Language="ru-ru" Text="огин"/><Run Text=":"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="17" Margin="320,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBlock HorizontalAlignment="Left" Margin="320,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Пароль"/><Run Text=":"/></TextBlock>
+        <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="362,375,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

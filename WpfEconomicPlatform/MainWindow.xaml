@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfEconomicPlatform"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="авторизация" Height="450" Width="800">
+    <Grid Height="434" VerticalAlignment="Center">
+        <TextBox HorizontalAlignment="Left" Height="19" Margin="322,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <TextBox HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" VerticalAlignment="Center" Width="156" Margin="322,0,0,0"/>
+        <Button Content="Вход" HorizontalAlignment="Left" Height="24" Margin="350,278,0,0" VerticalAlignment="Top" Width="100" Click="test"/>
+        <TextBlock HorizontalAlignment="Left" Margin="366,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru"/><Hyperlink Click="openRegistration">Регистрация</Hyperlink></TextBlock>
+        <TextBlock Margin="322,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" HorizontalAlignment="Left" Width="52"><Run Text="Логин:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock Margin="322,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Пароль:" HorizontalAlignment="Left" Width="52"/>
+
     </Grid>
 </Window>
