@@ -41,11 +41,5 @@ namespace WpfEconomicPlatform
             reportGraph reportGraphWindow = new reportGraph();
             reportGraphWindow.ShowDialog();
         }
-
-        private void addCategorys(object send, RoutedEventArgs e)
-        {
-            addCategory addCategoryWindow = new addCategory();
-            addCategoryWindow.ShowDialog();
-        }
     }
 }

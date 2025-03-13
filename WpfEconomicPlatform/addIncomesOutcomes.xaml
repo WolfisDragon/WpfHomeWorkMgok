@@ -18,7 +18,7 @@
         <TextBox HorizontalAlignment="Center" Margin="0,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="69"/>
         <Button Content="Готово" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Width="96"/>
         <TextBlock HorizontalAlignment="Left" Margin="61,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Language="ru-ru" Text="К"/><Run Text="атегория:"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="61,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Language="ru-ru" Text="описание:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="61,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Language="ru-ru" Text="О"/><Run Text="писание:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="61,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"><Run Language="ru-ru" Text="доход"/><Run Text="/"/><Run Language="ru-ru" Text="расход"/></TextBlock>
 
     </Grid>

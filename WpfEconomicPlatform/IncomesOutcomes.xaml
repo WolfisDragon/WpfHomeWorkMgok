@@ -8,9 +8,8 @@
         Title="доходы/расходы" Height="450" Width="850">
     <Grid>
         <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,123,0"/>
-        <Button Content=" Добавить&#xD;&#xA;дох/рас" HorizontalAlignment="Left" Margin="742,22,0,0" VerticalAlignment="Top" Width="79" Height="42" Click="addIndOut"/>
-        <Button Content="Список&#xD;&#xA;категорий" HorizontalAlignment="Left" Margin="742,107,0,0" VerticalAlignment="Top" Width="78" Click="categoryList"/>
-        <Button Content="отчёт &#xD;&#xA;(график)" HorizontalAlignment="Left" Margin="742,269,0,0" VerticalAlignment="Top" Width="78" Click="report"/>
-        <Button Content="добавить&#xD;&#xA; категорию" HorizontalAlignment="Left" Margin="742,186,0,0" VerticalAlignment="Top" Width="78" Click="addCategorys"/>
+        <Button Content=" Добавить&#xD;&#xA;дох/рас" HorizontalAlignment="Left" Margin="742,141,0,0" VerticalAlignment="Top" Width="79" Height="42" Click="addIndOut"/>
+        <Button Content="Список&#xD;&#xA;категорий" HorizontalAlignment="Left" Margin="743,217,0,0" VerticalAlignment="Top" Width="78" Click="categoryList"/>
+        <Button Content="отчёт &#xD;&#xA;(график)" HorizontalAlignment="Left" Margin="742,286,0,0" VerticalAlignment="Top" Width="78" Click="report"/>
     </Grid>
 </Window>
