@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfEconomicPlatform"
         mc:Ignorable="d"
-        Title="reportGraph" Height="450" Width="800">
+        Title="График Расходов/Доходов" Height="450" Width="800">
     <Grid>
         
     </Grid>

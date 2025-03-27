@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfEconomicPlatform"
         mc:Ignorable="d"
-        Title="доходы/расходы" Height="450" Width="850">
+        Title="Доходы/Расходы" Height="450" Width="850">
     <Grid>
         <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,123,0"/>
         <Button Content=" Добавить&#xD;&#xA;дох/рас" HorizontalAlignment="Left" Margin="742,141,0,0" VerticalAlignment="Top" Width="79" Height="42" Click="addIndOut"/>

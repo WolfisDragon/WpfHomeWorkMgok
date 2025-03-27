@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfEconomicPlatform"
         ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="добавление расходов/доходов" Height="330" Width="300">
+        Title="Добавление расходов/доходов" Height="330" Width="300">
     <Grid>
         <ComboBox HorizontalAlignment="Center" Height="22" Margin="0,31,0,0" VerticalAlignment="Top" Width="178">
             <TextBlock>Доход</TextBlock>

@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:WpfEconomicPlatform"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="categoryList" Height="350" Width="400">
+        Title="Окно категорий" Height="350" Width="400">
     <Grid>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,165,0"/>
+        <DataGrid x:Name="categoryGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,165,0"/>
         <Button Content="назад" HorizontalAlignment="Left" Margin="280,45,0,0" VerticalAlignment="Top" Width="77" Height="38"/>
         <Button Content="добавить&#xD;&#xA;категорию" HorizontalAlignment="Left" Margin="280,162,0,0" VerticalAlignment="Top" Height="41" Width="77" Click="addCategorys"/>
 

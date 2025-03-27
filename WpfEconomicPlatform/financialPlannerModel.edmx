@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinancialPlannerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CategoriesIncome">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategoriesOutcome">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IncomeBudgetSettings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="totalAmount" Type="int" Nullable="false" />
+          <Property Name="categoryIncomeId" Type="int" Nullable="false" />
+          <Property Name="dateStart" Type="datetime" Nullable="false" />
+          <Property Name="dateEnd" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Incomes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="OutcomeBudgetSettings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="totalAmount" Type="int" Nullable="false" />
+          <Property Name="categoryOutcomeId" Type="int" Nullable="false" />
+          <Property Name="dateStart" Type="datetime" Nullable="false" />
+          <Property Name="dateEnd" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Outcomes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Categorie__userI__49C3F6B7">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CategoriesIncome" Type="Self.CategoriesIncome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CategoriesIncome">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Categorie__userI__4CA06362">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CategoriesOutcome" Type="Self.CategoriesOutcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CategoriesOutcome">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IncomeBud__categ__5BE2A6F2">
+          <End Role="CategoriesIncome" Type="Self.CategoriesIncome" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="IncomeBudgetSettings" Type="Self.IncomeBudgetSettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesIncome">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IncomeBudgetSettings">
+              <PropertyRef Name="categoryIncomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IncomeBud__userI__5AEE82B9">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="IncomeBudgetSettings" Type="Self.IncomeBudgetSettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IncomeBudgetSettings">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Incomes__categor__5070F446">
+          <End Role="CategoriesIncome" Type="Self.CategoriesIncome" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Incomes" Type="Self.Incomes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesIncome">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incomes">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Incomes__userId__4F7CD00D">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Incomes" Type="Self.Incomes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incomes">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutcomeBu__categ__5812160E">
+          <End Role="CategoriesOutcome" Type="Self.CategoriesOutcome" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OutcomeBudgetSettings" Type="Self.OutcomeBudgetSettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesOutcome">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OutcomeBudgetSettings">
+              <PropertyRef Name="categoryOutcomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutcomeBu__userI__571DF1D5">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="OutcomeBudgetSettings" Type="Self.OutcomeBudgetSettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OutcomeBudgetSettings">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Outcomes__catego__5441852A">
+          <End Role="CategoriesOutcome" Type="Self.CategoriesOutcome" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Outcomes" Type="Self.Outcomes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesOutcome">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Outcomes">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Outcomes__userId__534D60F1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Outcomes" Type="Self.Outcomes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Outcomes">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinancialPlannerModelStoreContainer">
+          <EntitySet Name="CategoriesIncome" EntityType="Self.CategoriesIncome" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoriesOutcome" EntityType="Self.CategoriesOutcome" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IncomeBudgetSettings" EntityType="Self.IncomeBudgetSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Incomes" EntityType="Self.Incomes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OutcomeBudgetSettings" EntityType="Self.OutcomeBudgetSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Outcomes" EntityType="Self.Outcomes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Categorie__userI__49C3F6B7" Association="Self.FK__Categorie__userI__49C3F6B7">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CategoriesIncome" EntitySet="CategoriesIncome" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Categorie__userI__4CA06362" Association="Self.FK__Categorie__userI__4CA06362">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CategoriesOutcome" EntitySet="CategoriesOutcome" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IncomeBud__categ__5BE2A6F2" Association="Self.FK__IncomeBud__categ__5BE2A6F2">
+            <End Role="CategoriesIncome" EntitySet="CategoriesIncome" />
+            <End Role="IncomeBudgetSettings" EntitySet="IncomeBudgetSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IncomeBud__userI__5AEE82B9" Association="Self.FK__IncomeBud__userI__5AEE82B9">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="IncomeBudgetSettings" EntitySet="IncomeBudgetSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Incomes__categor__5070F446" Association="Self.FK__Incomes__categor__5070F446">
+            <End Role="CategoriesIncome" EntitySet="CategoriesIncome" />
+            <End Role="Incomes" EntitySet="Incomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Incomes__userId__4F7CD00D" Association="Self.FK__Incomes__userId__4F7CD00D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Incomes" EntitySet="Incomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutcomeBu__categ__5812160E" Association="Self.FK__OutcomeBu__categ__5812160E">
+            <End Role="CategoriesOutcome" EntitySet="CategoriesOutcome" />
+            <End Role="OutcomeBudgetSettings" EntitySet="OutcomeBudgetSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutcomeBu__userI__571DF1D5" Association="Self.FK__OutcomeBu__userI__571DF1D5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="OutcomeBudgetSettings" EntitySet="OutcomeBudgetSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Outcomes__catego__5441852A" Association="Self.FK__Outcomes__catego__5441852A">
+            <End Role="CategoriesOutcome" EntitySet="CategoriesOutcome" />
+            <End Role="Outcomes" EntitySet="Outcomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Outcomes__userId__534D60F1" Association="Self.FK__Outcomes__userId__534D60F1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Outcomes" EntitySet="Outcomes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinancialPlannerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CategoriesIncome">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Categorie__userI__49C3F6B7" FromRole="CategoriesIncome" ToRole="Users" />
+          <NavigationProperty Name="IncomeBudgetSettings" Relationship="Self.FK__IncomeBud__categ__5BE2A6F2" FromRole="CategoriesIncome" ToRole="IncomeBudgetSettings" />
+          <NavigationProperty Name="Incomes" Relationship="Self.FK__Incomes__categor__5070F446" FromRole="CategoriesIncome" ToRole="Incomes" />
+        </EntityType>
+        <EntityType Name="CategoriesOutcome">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Categorie__userI__4CA06362" FromRole="CategoriesOutcome" ToRole="Users" />
+          <NavigationProperty Name="OutcomeBudgetSettings" Relationship="Self.FK__OutcomeBu__categ__5812160E" FromRole="CategoriesOutcome" ToRole="OutcomeBudgetSettings" />
+          <NavigationProperty Name="Outcomes" Relationship="Self.FK__Outcomes__catego__5441852A" FromRole="CategoriesOutcome" ToRole="Outcomes" />
+        </EntityType>
+        <EntityType Name="IncomeBudgetSetting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="totalAmount" Type="Int32" Nullable="false" />
+          <Property Name="categoryIncomeId" Type="Int32" Nullable="false" />
+          <Property Name="dateStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CategoriesIncome" Relationship="Self.FK__IncomeBud__categ__5BE2A6F2" FromRole="IncomeBudgetSettings" ToRole="CategoriesIncome" />
+          <NavigationProperty Name="User" Relationship="Self.FK__IncomeBud__userI__5AEE82B9" FromRole="IncomeBudgetSettings" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="categoryId" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CategoriesIncome" Relationship="Self.FK__Incomes__categor__5070F446" FromRole="Incomes" ToRole="CategoriesIncome" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Incomes__userId__4F7CD00D" FromRole="Incomes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="OutcomeBudgetSetting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="totalAmount" Type="Int32" Nullable="false" />
+          <Property Name="categoryOutcomeId" Type="Int32" Nullable="false" />
+          <Property Name="dateStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CategoriesOutcome" Relationship="Self.FK__OutcomeBu__categ__5812160E" FromRole="OutcomeBudgetSettings" ToRole="CategoriesOutcome" />
+          <NavigationProperty Name="User" Relationship="Self.FK__OutcomeBu__userI__571DF1D5" FromRole="OutcomeBudgetSettings" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Outcome">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="categoryId" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CategoriesOutcome" Relationship="Self.FK__Outcomes__catego__5441852A" FromRole="Outcomes" ToRole="CategoriesOutcome" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Outcomes__userId__534D60F1" FromRole="Outcomes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CategoriesIncomes" Relationship="Self.FK__Categorie__userI__49C3F6B7" FromRole="Users" ToRole="CategoriesIncome" />
+          <NavigationProperty Name="CategoriesOutcomes" Relationship="Self.FK__Categorie__userI__4CA06362" FromRole="Users" ToRole="CategoriesOutcome" />
+          <NavigationProperty Name="IncomeBudgetSettings" Relationship="Self.FK__IncomeBud__userI__5AEE82B9" FromRole="Users" ToRole="IncomeBudgetSettings" />
+          <NavigationProperty Name="Incomes" Relationship="Self.FK__Incomes__userId__4F7CD00D" FromRole="Users" ToRole="Incomes" />
+          <NavigationProperty Name="OutcomeBudgetSettings" Relationship="Self.FK__OutcomeBu__userI__571DF1D5" FromRole="Users" ToRole="OutcomeBudgetSettings" />
+          <NavigationProperty Name="Outcomes" Relationship="Self.FK__Outcomes__userId__534D60F1" FromRole="Users" ToRole="Outcomes" />
+        </EntityType>
+        <Association Name="FK__Categorie__userI__49C3F6B7">
+          <End Role="Users" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CategoriesIncome" Type="Self.CategoriesIncome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CategoriesIncome">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IncomeBud__categ__5BE2A6F2">
+          <End Role="CategoriesIncome" Type="Self.CategoriesIncome" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="IncomeBudgetSettings" Type="Self.IncomeBudgetSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesIncome">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IncomeBudgetSettings">
+              <PropertyRef Name="categoryIncomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Incomes__categor__5070F446">
+          <End Role="CategoriesIncome" Type="Self.CategoriesIncome" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Incomes" Type="Self.Income" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesIncome">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incomes">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Categorie__userI__4CA06362">
+          <End Role="Users" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CategoriesOutcome" Type="Self.CategoriesOutcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CategoriesOutcome">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutcomeBu__categ__5812160E">
+          <End Role="CategoriesOutcome" Type="Self.CategoriesOutcome" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OutcomeBudgetSettings" Type="Self.OutcomeBudgetSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesOutcome">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OutcomeBudgetSettings">
+              <PropertyRef Name="categoryOutcomeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Outcomes__catego__5441852A">
+          <End Role="CategoriesOutcome" Type="Self.CategoriesOutcome" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Outcomes" Type="Self.Outcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriesOutcome">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Outcomes">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IncomeBud__userI__5AEE82B9">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="IncomeBudgetSettings" Type="Self.IncomeBudgetSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IncomeBudgetSettings">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Incomes__userId__4F7CD00D">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Incomes" Type="Self.Income" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incomes">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OutcomeBu__userI__571DF1D5">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="OutcomeBudgetSettings" Type="Self.OutcomeBudgetSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OutcomeBudgetSettings">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Outcomes__userId__534D60F1">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Outcomes" Type="Self.Outcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Outcomes">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinancialPlannerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategoriesIncomes" EntityType="Self.CategoriesIncome" />
+          <EntitySet Name="CategoriesOutcomes" EntityType="Self.CategoriesOutcome" />
+          <EntitySet Name="IncomeBudgetSettings" EntityType="Self.IncomeBudgetSetting" />
+          <EntitySet Name="Incomes" EntityType="Self.Income" />
+          <EntitySet Name="OutcomeBudgetSettings" EntityType="Self.OutcomeBudgetSetting" />
+          <EntitySet Name="Outcomes" EntityType="Self.Outcome" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Categorie__userI__49C3F6B7" Association="Self.FK__Categorie__userI__49C3F6B7">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CategoriesIncome" EntitySet="CategoriesIncomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IncomeBud__categ__5BE2A6F2" Association="Self.FK__IncomeBud__categ__5BE2A6F2">
+            <End Role="CategoriesIncome" EntitySet="CategoriesIncomes" />
+            <End Role="IncomeBudgetSettings" EntitySet="IncomeBudgetSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Incomes__categor__5070F446" Association="Self.FK__Incomes__categor__5070F446">
+            <End Role="CategoriesIncome" EntitySet="CategoriesIncomes" />
+            <End Role="Incomes" EntitySet="Incomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Categorie__userI__4CA06362" Association="Self.FK__Categorie__userI__4CA06362">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CategoriesOutcome" EntitySet="CategoriesOutcomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutcomeBu__categ__5812160E" Association="Self.FK__OutcomeBu__categ__5812160E">
+            <End Role="CategoriesOutcome" EntitySet="CategoriesOutcomes" />
+            <End Role="OutcomeBudgetSettings" EntitySet="OutcomeBudgetSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Outcomes__catego__5441852A" Association="Self.FK__Outcomes__catego__5441852A">
+            <End Role="CategoriesOutcome" EntitySet="CategoriesOutcomes" />
+            <End Role="Outcomes" EntitySet="Outcomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IncomeBud__userI__5AEE82B9" Association="Self.FK__IncomeBud__userI__5AEE82B9">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="IncomeBudgetSettings" EntitySet="IncomeBudgetSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Incomes__userId__4F7CD00D" Association="Self.FK__Incomes__userId__4F7CD00D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Incomes" EntitySet="Incomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OutcomeBu__userI__571DF1D5" Association="Self.FK__OutcomeBu__userI__571DF1D5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="OutcomeBudgetSettings" EntitySet="OutcomeBudgetSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Outcomes__userId__534D60F1" Association="Self.FK__Outcomes__userId__534D60F1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Outcomes" EntitySet="Outcomes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinancialPlannerModelStoreContainer" CdmEntityContainer="FinancialPlannerEntities">
+          <EntitySetMapping Name="CategoriesIncomes">
+            <EntityTypeMapping TypeName="FinancialPlannerModel.CategoriesIncome">
+              <MappingFragment StoreEntitySet="CategoriesIncome">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriesOutcomes">
+            <EntityTypeMapping TypeName="FinancialPlannerModel.CategoriesOutcome">
+              <MappingFragment StoreEntitySet="CategoriesOutcome">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IncomeBudgetSettings">
+            <EntityTypeMapping TypeName="FinancialPlannerModel.IncomeBudgetSetting">
+              <MappingFragment StoreEntitySet="IncomeBudgetSettings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="categoryIncomeId" ColumnName="categoryIncomeId" />
+                <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+                <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incomes">
+            <EntityTypeMapping TypeName="FinancialPlannerModel.Income">
+              <MappingFragment StoreEntitySet="Incomes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutcomeBudgetSettings">
+            <EntityTypeMapping TypeName="FinancialPlannerModel.OutcomeBudgetSetting">
+              <MappingFragment StoreEntitySet="OutcomeBudgetSettings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="categoryOutcomeId" ColumnName="categoryOutcomeId" />
+                <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+                <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Outcomes">
+            <EntityTypeMapping TypeName="FinancialPlannerModel.Outcome">
+              <MappingFragment StoreEntitySet="Outcomes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FinancialPlannerModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

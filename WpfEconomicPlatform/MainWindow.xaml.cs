@@ -1,41 +1,47 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfEconomicPlatform
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private FinancialPlannerEntities db;
+
         public MainWindow()
         {
             InitializeComponent();
+            db = new FinancialPlannerEntities();
         }
 
-        private void openRegistration(object send, RoutedEventArgs e)
+        private void openRegistration(object sender, RoutedEventArgs e)
         {
-            registration taskWindow = new registration();
-            taskWindow.ShowDialog();
+            registration registrationWindow = new registration();
+            registrationWindow.ShowDialog();
         }
 
-        private void test (object send, RoutedEventArgs e)
+        private void Auth(object sender, RoutedEventArgs e)
         {
-            IncomesOutcomes mainWindow = new IncomesOutcomes();
-            mainWindow.ShowDialog();
+            string login = LoginTextBox.Text.Trim();
+            string password = PasswordTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Введите логин и пароль.");
+                return;
+            }
+
+            var user = db.Users.FirstOrDefault(u => u.login == login && u.password == password);
+            if (user != null)
+            {
+                IncomesOutcomes mainWindow = new IncomesOutcomes();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Неверный логин или пароль.");
+            }
         }
     }
 }

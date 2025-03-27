@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:WpfEconomicPlatform"
         ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="регестрация" Height="300" Width="250">
+        Title="Регистрация" Height="300" Width="250">
     <Grid Height="434" VerticalAlignment="Bottom">
-        <TextBox HorizontalAlignment="Left" Height="17" Margin="40,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <TextBox HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Margin="40,250,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="17" Margin="40,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBox x:Name="fullNameTextBox" HorizontalAlignment="Left" Height="17" Margin="40,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Margin="40,250,0,0"/>
+        <TextBox x:Name="loginTextBox" HorizontalAlignment="Left" Height="17" Margin="40,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
         <TextBlock HorizontalAlignment="Left" Margin="43,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Text="ФИО:"/>
         <TextBlock HorizontalAlignment="Left" Margin="40,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="П"/><Run Text="очта"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="40,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Л"/><Run Language="ru-ru" Text="огин"/><Run Text=":"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="17" Margin="40,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Height="17" Margin="40,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
         <TextBlock HorizontalAlignment="Left" Margin="40,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Пароль"/><Run Text=":"/></TextBlock>
-        <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="79,385,0,0" VerticalAlignment="Top" Width="81"/>
+        <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="79,385,0,0" VerticalAlignment="Top" Width="81" Click="Registration"/>
     </Grid>
 </Window>
