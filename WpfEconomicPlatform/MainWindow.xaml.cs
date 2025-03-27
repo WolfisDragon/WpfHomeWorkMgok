@@ -20,28 +20,41 @@ namespace WpfEconomicPlatform
             registrationWindow.ShowDialog();
         }
 
-        private void Auth(object sender, RoutedEventArgs e)
+      private void Auth(object sender, RoutedEventArgs e)
         {
             string login = LoginTextBox.Text.Trim();
             string password = PasswordTextBox.Text.Trim();
 
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Введите логин и пароль.");
+                MessageBox.Show("Пожалуйста, введите логин и пароль.");
                 return;
             }
 
             var user = db.Users.FirstOrDefault(u => u.login == login && u.password == password);
-            if (user != null)
-            {
-                IncomesOutcomes mainWindow = new IncomesOutcomes();
-                mainWindow.Show();
-                this.Close();
-            }
-            else
+
+            if (user == null)
             {
                 MessageBox.Show("Неверный логин или пароль.");
             }
+            else
+            {
+
+                CurrentUser.UserId = user.id;
+
+
+                IncomesOutcomes incomesOutcomesWindow = new IncomesOutcomes();
+                incomesOutcomesWindow.Show();
+                this.Close();
+            }
         }
+
     }
+
+    public static class CurrentUser
+    {
+        public static int UserId { get; set; }
+    }
+
+
 }
