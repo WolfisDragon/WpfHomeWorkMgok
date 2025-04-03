@@ -12,16 +12,16 @@ namespace WpfEconomicPlatform
     using System;
     using System.Collections.Generic;
     
-    public partial class OutcomeBudgetSetting
+    public partial class IncomeBudgetSettings
     {
         public int id { get; set; }
         public int userId { get; set; }
         public int totalAmount { get; set; }
-        public int categoryOutcomeId { get; set; }
+        public int categoryIncomeId { get; set; }
         public System.DateTime dateStart { get; set; }
         public System.DateTime dateEnd { get; set; }
     
-        public virtual CategoriesOutcome CategoriesOutcome { get; set; }
-        public virtual User User { get; set; }
+        public virtual CategoriesIncome CategoriesIncome { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

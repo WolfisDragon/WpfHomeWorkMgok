@@ -6,12 +6,12 @@ namespace WpfEconomicPlatform
 {
     public partial class registration : Window
     {
-        private FinancialPlannerEntities db;
+        private FinancialPlannerIS322DEntities db;
 
         public registration()
         {
             InitializeComponent();
-            db = new FinancialPlannerEntities();
+            db = new FinancialPlannerIS322DEntities();
         }
 
         private void Registration(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace WpfEconomicPlatform
             try
             {
 
-                User newUser = new User
+                Users newUser = new Users
                 {
                     fullname = fullName,
                     login = login,
@@ -55,14 +55,14 @@ namespace WpfEconomicPlatform
 
                 int userId = newUser.id;
 
-                db.CategoriesIncomes.AddRange(new[]
+                db.CategoriesIncome.AddRange(new[]
                 {
                     new CategoriesIncome { userId = userId, title = "Salary" },
                     new CategoriesIncome { userId = userId, title = "Bonuses" },
                     new CategoriesIncome { userId = userId, title = "Additional income" }
                 });
 
-                db.CategoriesOutcomes.AddRange(new[]
+                db.CategoriesOutcome.AddRange(new[]
                 {
                     new CategoriesOutcome { userId = userId, title = "Groceries" },
                     new CategoriesOutcome { userId = userId, title = "Transportation" },

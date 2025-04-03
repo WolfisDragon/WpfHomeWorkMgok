@@ -12,7 +12,7 @@ namespace WpfEconomicPlatform
     using System;
     using System.Collections.Generic;
     
-    public partial class Income
+    public partial class Outcomes
     {
         public int id { get; set; }
         public int userId { get; set; }
@@ -21,7 +21,7 @@ namespace WpfEconomicPlatform
         public int categoryId { get; set; }
         public string description { get; set; }
     
-        public virtual CategoriesIncome CategoriesIncome { get; set; }
-        public virtual User User { get; set; }
+        public virtual CategoriesOutcome CategoriesOutcome { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

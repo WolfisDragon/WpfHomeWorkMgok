@@ -12,17 +12,17 @@ namespace WpfEconomicPlatform
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Users()
         {
-            this.CategoriesIncomes = new HashSet<CategoriesIncome>();
-            this.CategoriesOutcomes = new HashSet<CategoriesOutcome>();
-            this.IncomeBudgetSettings = new HashSet<IncomeBudgetSetting>();
-            this.Incomes = new HashSet<Income>();
-            this.OutcomeBudgetSettings = new HashSet<OutcomeBudgetSetting>();
-            this.Outcomes = new HashSet<Outcome>();
+            this.CategoriesIncome = new HashSet<CategoriesIncome>();
+            this.CategoriesOutcome = new HashSet<CategoriesOutcome>();
+            this.IncomeBudgetSettings = new HashSet<IncomeBudgetSettings>();
+            this.Incomes = new HashSet<Incomes>();
+            this.OutcomeBudgetSettings = new HashSet<OutcomeBudgetSettings>();
+            this.Outcomes = new HashSet<Outcomes>();
         }
     
         public int id { get; set; }
@@ -32,16 +32,16 @@ namespace WpfEconomicPlatform
         public string email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CategoriesIncome> CategoriesIncomes { get; set; }
+        public virtual ICollection<CategoriesIncome> CategoriesIncome { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CategoriesOutcome> CategoriesOutcomes { get; set; }
+        public virtual ICollection<CategoriesOutcome> CategoriesOutcome { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IncomeBudgetSetting> IncomeBudgetSettings { get; set; }
+        public virtual ICollection<IncomeBudgetSettings> IncomeBudgetSettings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Income> Incomes { get; set; }
+        public virtual ICollection<Incomes> Incomes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OutcomeBudgetSetting> OutcomeBudgetSettings { get; set; }
+        public virtual ICollection<OutcomeBudgetSettings> OutcomeBudgetSettings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Outcome> Outcomes { get; set; }
+        public virtual ICollection<Outcomes> Outcomes { get; set; }
     }
 }

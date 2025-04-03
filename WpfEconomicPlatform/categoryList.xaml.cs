@@ -6,12 +6,12 @@ namespace WpfEconomicPlatform
 {
     public partial class categoryList : Window
     {
-        private FinancialPlannerEntities db;
+        private FinancialPlannerIS322DEntities db;
 
         public categoryList()
         {
             InitializeComponent();
-            db = new FinancialPlannerEntities();
+            db = new FinancialPlannerIS322DEntities();
             LoadCategories();
         }
 
@@ -22,11 +22,11 @@ namespace WpfEconomicPlatform
                
                 int currentUserId = CurrentUser.UserId;
 
-                var categories = db.CategoriesIncomes
+                var categories = db.CategoriesIncome
                     .Where(c => c.userId == currentUserId)
                     .Select(c => new { Название = c.title, Тип = "Доход" })
                     .Union(
-                        db.CategoriesOutcomes
+                        db.CategoriesOutcome
                             .Where(c => c.userId == currentUserId)
                             .Select(c => new { Название = c.title, Тип = "Расход" })
                     )

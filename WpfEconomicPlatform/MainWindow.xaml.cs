@@ -6,12 +6,12 @@ namespace WpfEconomicPlatform
 {
     public partial class MainWindow : Window
     {
-        private FinancialPlannerEntities db;
+        private FinancialPlannerIS322DEntities db;
 
         public MainWindow()
         {
             InitializeComponent();
-            db = new FinancialPlannerEntities();
+            db = new FinancialPlannerIS322DEntities();
         }
 
         private void openRegistration(object sender, RoutedEventArgs e)

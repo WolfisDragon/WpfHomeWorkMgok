@@ -71,43 +71,43 @@
       <DependentUpon>addIncomesOutcomes.xaml</DependentUpon>
     </Compile>
     <Compile Include="CategoriesIncome.cs">
-      <DependentUpon>financialPlannerModel.tt</DependentUpon>
+      <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
     <Compile Include="CategoriesOutcome.cs">
-      <DependentUpon>financialPlannerModel.tt</DependentUpon>
+      <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
     <Compile Include="categoryList.xaml.cs">
       <DependentUpon>categoryList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="financialPlannerModel.Context.cs">
+    <Compile Include="FinancialPlanner.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>financialPlannerModel.Context.tt</DependentUpon>
+      <DependentUpon>FinancialPlanner.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="financialPlannerModel.cs">
+    <Compile Include="FinancialPlanner.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>financialPlannerModel.tt</DependentUpon>
+      <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
-    <Compile Include="financialPlannerModel.Designer.cs">
+    <Compile Include="FinancialPlanner.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>financialPlannerModel.edmx</DependentUpon>
+      <DependentUpon>FinancialPlanner.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Income.cs">
-      <DependentUpon>financialPlannerModel.tt</DependentUpon>
+    <Compile Include="IncomeBudgetSettings.cs">
+      <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
-    <Compile Include="IncomeBudgetSetting.cs">
-      <DependentUpon>financialPlannerModel.tt</DependentUpon>
+    <Compile Include="Incomes.cs">
+      <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
     <Compile Include="IncomesOutcomes.xaml.cs">
       <DependentUpon>IncomesOutcomes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Outcome.cs">
-      <DependentUpon>financialPlannerModel.tt</DependentUpon>
+    <Compile Include="OutcomeBudgetSettings.cs">
+      <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutcomeBudgetSetting.cs">
-      <DependentUpon>financialPlannerModel.tt</DependentUpon>
+    <Compile Include="Outcomes.cs">
+      <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
     <Compile Include="registration.xaml.cs">
       <DependentUpon>registration.xaml</DependentUpon>
@@ -115,8 +115,8 @@
     <Compile Include="reportGraph.xaml.cs">
       <DependentUpon>reportGraph.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>financialPlannerModel.tt</DependentUpon>
+    <Compile Include="Users.cs">
+      <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
     <Page Include="addCategory.xaml">
       <SubType>Designer</SubType>
@@ -173,12 +173,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="financialPlannerModel.edmx">
+    <EntityDeploy Include="FinancialPlanner.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>financialPlannerModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>FinancialPlanner.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="financialPlannerModel.edmx.diagram">
-      <DependentUpon>financialPlannerModel.edmx</DependentUpon>
+    <None Include="FinancialPlanner.edmx.diagram">
+      <DependentUpon>FinancialPlanner.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -190,19 +190,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="financialPlannerModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>financialPlannerModel.Context.cs</LastGenOutput>
-      <DependentUpon>financialPlannerModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="financialPlannerModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>financialPlannerModel.edmx</DependentUpon>
-      <LastGenOutput>financialPlannerModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="FinancialPlanner.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FinancialPlanner.edmx</DependentUpon>
+      <LastGenOutput>FinancialPlanner.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FinancialPlanner.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FinancialPlanner.edmx</DependentUpon>
+      <LastGenOutput>FinancialPlanner.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

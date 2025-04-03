@@ -17,18 +17,18 @@ namespace WpfEconomicPlatform
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CategoriesOutcome()
         {
-            this.OutcomeBudgetSettings = new HashSet<OutcomeBudgetSetting>();
-            this.Outcomes = new HashSet<Outcome>();
+            this.OutcomeBudgetSettings = new HashSet<OutcomeBudgetSettings>();
+            this.Outcomes = new HashSet<Outcomes>();
         }
     
         public int id { get; set; }
         public string title { get; set; }
         public int userId { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OutcomeBudgetSetting> OutcomeBudgetSettings { get; set; }
+        public virtual ICollection<OutcomeBudgetSettings> OutcomeBudgetSettings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Outcome> Outcomes { get; set; }
+        public virtual ICollection<Outcomes> Outcomes { get; set; }
     }
 }

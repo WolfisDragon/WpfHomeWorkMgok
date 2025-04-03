@@ -13,10 +13,10 @@ namespace WpfEconomicPlatform
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinancialPlannerEntities : DbContext
+    public partial class FinancialPlannerIS322DEntities : DbContext
     {
-        public FinancialPlannerEntities()
-            : base("name=FinancialPlannerEntities")
+        public FinancialPlannerIS322DEntities()
+            : base("name=FinancialPlannerIS322DEntities")
         {
         }
     
@@ -25,12 +25,12 @@ namespace WpfEconomicPlatform
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CategoriesIncome> CategoriesIncomes { get; set; }
-        public virtual DbSet<CategoriesOutcome> CategoriesOutcomes { get; set; }
-        public virtual DbSet<IncomeBudgetSetting> IncomeBudgetSettings { get; set; }
-        public virtual DbSet<Income> Incomes { get; set; }
-        public virtual DbSet<OutcomeBudgetSetting> OutcomeBudgetSettings { get; set; }
-        public virtual DbSet<Outcome> Outcomes { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<CategoriesIncome> CategoriesIncome { get; set; }
+        public virtual DbSet<CategoriesOutcome> CategoriesOutcome { get; set; }
+        public virtual DbSet<IncomeBudgetSettings> IncomeBudgetSettings { get; set; }
+        public virtual DbSet<Incomes> Incomes { get; set; }
+        public virtual DbSet<OutcomeBudgetSettings> OutcomeBudgetSettings { get; set; }
+        public virtual DbSet<Outcomes> Outcomes { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }
