@@ -11,8 +11,7 @@
         <Button Content=" Добавить&#xD;&#xA;дох/рас" HorizontalAlignment="Left" Margin="540,211,0,0" VerticalAlignment="Top" Width="79" Height="42" Click="addIndOut"/>
         <Button Content="Список&#xD;&#xA;категорий" HorizontalAlignment="Left" Margin="703,211,0,0" VerticalAlignment="Top" Width="78" Click="categoryList" Height="42"/>
         <Button Content="График" HorizontalAlignment="Left" Margin="540,314,0,0" VerticalAlignment="Top" Width="78" Click="report" Height="42"/>
-        <Button Content="Задать цели" HorizontalAlignment="Left" Margin="703,314,0,0" VerticalAlignment="Top" Width="78" Click="report" Height="42"/>
-        <Button Content="Выйти" HorizontalAlignment="Left" Margin="780,10,0,0" VerticalAlignment="Top" Width="60" Click="categoryList" Height="27"/>
+        <Button Content="Задать цели" HorizontalAlignment="Left" Margin="703,314,0,0" VerticalAlignment="Top" Width="78" Click="SetGoals" Height="42"/>
         <TextBlock HorizontalAlignment="Left" Margin="657,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"><Run Language="ru-ru" Text="имя пользователя"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="579,64,0,0" TextWrapping="Wrap" Text="Баланс:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="624,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"><Run Language="ru-ru" Text="10000"/><Run Text="$"/></TextBlock>
@@ -21,5 +20,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="703,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36"><Run Text="Цели"/><LineBreak/><Run Language="ru-ru" Text="дохода"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="589,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="18"><Run Language="ru-ru" Text="0/100"/><Run Text="$"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="747,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="18"><Run Language="ru-ru" Text="0/100"/><Run Text="$"/><LineBreak/><Run/></TextBlock>
+        <Button Content="Выйти" HorizontalAlignment="Left" Height="26" Margin="781,11,0,0" VerticalAlignment="Top" Width="60" Click="exit"/>
     </Grid>
 </Window>

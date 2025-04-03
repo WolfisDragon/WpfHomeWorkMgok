@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfEconomicPlatform.Setgoals"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfEconomicPlatform"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Title="задать цель" Height="350" Width="300">
+    <Grid>
+        <TextBox HorizontalAlignment="Center" Height="26" Margin="0,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
+        <TextBox HorizontalAlignment="Center" Height="26" Margin="0,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
+        <TextBlock Margin="50,58,135,0" TextWrapping="Wrap" Text="Задать цель расхода:" Height="16" VerticalAlignment="Top"/>
+        <TextBlock Margin="50,125,140,0" TextWrapping="Wrap" Text="Задать цель дохода:" Height="16" VerticalAlignment="Top"/>
+        <Button Content="Готово" HorizontalAlignment="Left" Height="26" Margin="10,241,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Height="26" Margin="158,241,0,0" VerticalAlignment="Top" Width="126" Click="exit"/>
+
+    </Grid>
+</Window>

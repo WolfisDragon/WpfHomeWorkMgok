@@ -41,5 +41,18 @@ namespace WpfEconomicPlatform
             reportGraph reportGraphWindow = new reportGraph();
             reportGraphWindow.ShowDialog();
         }
+
+        private void SetGoals (object send, RoutedEventArgs e)
+        {
+            Setgoals SetGoalsWindow = new Setgoals();
+            SetGoalsWindow.ShowDialog();
+        }
+ 
+        private void exit(object send, RoutedEventArgs e) 
+        { 
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

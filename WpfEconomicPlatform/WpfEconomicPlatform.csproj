@@ -115,6 +115,9 @@
     <Compile Include="reportGraph.xaml.cs">
       <DependentUpon>reportGraph.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Setgoals.xaml.cs">
+      <DependentUpon>Setgoals.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>FinancialPlanner.tt</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="reportGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setgoals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
