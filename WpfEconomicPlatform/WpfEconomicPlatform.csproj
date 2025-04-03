@@ -79,6 +79,7 @@
     <Compile Include="categoryList.xaml.cs">
       <DependentUpon>categoryList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="entities\IncomesOutcomesDTO.cs" />
     <Compile Include="FinancialPlanner.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
