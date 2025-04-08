@@ -11,7 +11,7 @@
             <ColumnDefinition Width="60*"/>
             <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid Grid.Column="0" Name="DataGridIncomesOutcomes" AutoGenerateColumns="True" ColumnWidth="*"/>
         <StackPanel Grid.Column="1">
             <Button Content="Выйти" Margin="0,0,-270,0" Click="exit" Width="60" Height="26"/>
             <TextBlock Margin="0,-30,-75,0" TextWrapping="Wrap" Width="118" Height="16"><Run Language="ru-ru" Text="имя пользователя"/></TextBlock>
