@@ -7,21 +7,24 @@
         mc:Ignorable="d"
         Title="Доходы/Расходы" Height="450" Width="850">
     <Grid>
-        <DataGrid Name="DataGridIncomesOutcomes" AutoGenerateColumns="True" ColumnWidth="*" Margin="0,0,390,0"/>
-        
-        
-        <Button Content=" Добавить&#xD;&#xA;дох/рас" HorizontalAlignment="Left" Margin="540,211,0,0" VerticalAlignment="Top" Width="79" Height="42" Click="addIndOut"/>
-        <Button Content="Список&#xD;&#xA;категорий" HorizontalAlignment="Left" Margin="703,211,0,0" VerticalAlignment="Top" Width="78" Click="categoryList" Height="42"/>
-        <Button Content="График" HorizontalAlignment="Left" Margin="540,314,0,0" VerticalAlignment="Top" Width="78" Click="report" Height="42"/>
-        <Button Content="Задать цели" HorizontalAlignment="Left" Margin="703,314,0,0" VerticalAlignment="Top" Width="78" Click="report" Height="42"/>
-        <Button Content="Выйти" HorizontalAlignment="Left" Margin="780,10,0,0" VerticalAlignment="Top" Width="60" Click="categoryList" Height="27"/>
-        <TextBlock Name="UserName" HorizontalAlignment="Left" Margin="657,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"><Run Language="ru-ru" Text="имя пользователя"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="579,64,0,0" TextWrapping="Wrap" Text="Баланс:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="624,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"><Run Language="ru-ru" Text="10000"/><Run Text="$"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="574,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Text=""/>
-        <TextBlock HorizontalAlignment="Left" Margin="540,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36"><Run Text="Цели"/><LineBreak/><Run Text="расхода"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="703,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36"><Run Text="Цели"/><LineBreak/><Run Language="ru-ru" Text="дохода"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="589,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="18"><Run Language="ru-ru" Text="0/100"/><Run Text="$"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="747,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="18"><Run Language="ru-ru" Text="0/100"/><Run Text="$"/><LineBreak/><Run/></TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" Name="DataGridIncomesOutcomes" AutoGenerateColumns="True" ColumnWidth="*"/>
+        <StackPanel Grid.Column="1">
+            <Button Content="Выйти" Margin="0,0,-270,0" Click="exit" Width="60" Height="26"/>
+            <TextBlock Margin="0,-30,-75,0" TextWrapping="Wrap" Width="118" Height="16"><Run Language="ru-ru" Text="имя пользователя"/></TextBlock>
+            <TextBlock Margin="0,25,70,0" TextWrapping="Wrap" Text="Баланс:" Height="19" Width="45"/>
+            <TextBlock Margin="0,-20,-100,0" TextWrapping="Wrap" Height="16" Width="118"><Run Language="ru-ru" Text="10000"/><Run Text="$"/></TextBlock>
+            <TextBlock Margin="0,25,200,0" TextWrapping="Wrap" Height="36" Width="44"><Run Text="Цели"/><LineBreak/><Run Text="расхода"/></TextBlock>
+            <TextBlock Margin="0,-40,-100,0" TextWrapping="Wrap" Height="36" Width="40"><Run Text="Цели"/><LineBreak/><Run Language="ru-ru" Text="дохода"/></TextBlock>
+            <TextBlock Margin="0,-40,50,0" TextWrapping="Wrap" Height="18" Width="94"><Run Language="ru-ru" Text="0/100"/><Run Text="$"/></TextBlock>
+            <TextBlock Margin="0,-40,-240,0" TextWrapping="Wrap" Height="18" Width="94"><Run Language="ru-ru" Text="0/100"/><Run Text="$"/><LineBreak/><Run/></TextBlock>
+            <Button Margin="50,70,0,0" Content=" Добавить&#xA;дох/рас" Click="addIndOut" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78"/>
+            <Button Margin="210,-43,0,0" Content="Список&#xA;категорий"  Click="categoryList" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78"/>
+            <Button Margin="50,40,0,0" Content="График"  Click="report" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78"/>
+            <Button Margin="210,-44,0,0" Content="Задать цели" Click="SetGoals" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78"/>
+        </StackPanel>
     </Grid>
 </Window>
