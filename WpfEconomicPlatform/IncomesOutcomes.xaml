@@ -7,13 +7,15 @@
         mc:Ignorable="d"
         Title="Доходы/Расходы" Height="450" Width="850">
     <Grid>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,390,0"/>
+        <DataGrid Name="DataGridIncomesOutcomes" AutoGenerateColumns="True" ColumnWidth="*" Margin="0,0,390,0"/>
+        
+        
         <Button Content=" Добавить&#xD;&#xA;дох/рас" HorizontalAlignment="Left" Margin="540,211,0,0" VerticalAlignment="Top" Width="79" Height="42" Click="addIndOut"/>
         <Button Content="Список&#xD;&#xA;категорий" HorizontalAlignment="Left" Margin="703,211,0,0" VerticalAlignment="Top" Width="78" Click="categoryList" Height="42"/>
         <Button Content="График" HorizontalAlignment="Left" Margin="540,314,0,0" VerticalAlignment="Top" Width="78" Click="report" Height="42"/>
         <Button Content="Задать цели" HorizontalAlignment="Left" Margin="703,314,0,0" VerticalAlignment="Top" Width="78" Click="report" Height="42"/>
         <Button Content="Выйти" HorizontalAlignment="Left" Margin="780,10,0,0" VerticalAlignment="Top" Width="60" Click="categoryList" Height="27"/>
-        <TextBlock HorizontalAlignment="Left" Margin="657,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"><Run Language="ru-ru" Text="имя пользователя"/></TextBlock>
+        <TextBlock Name="UserName" HorizontalAlignment="Left" Margin="657,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"><Run Language="ru-ru" Text="имя пользователя"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="579,64,0,0" TextWrapping="Wrap" Text="Баланс:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="624,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118"><Run Language="ru-ru" Text="10000"/><Run Text="$"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="574,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Text=""/>
