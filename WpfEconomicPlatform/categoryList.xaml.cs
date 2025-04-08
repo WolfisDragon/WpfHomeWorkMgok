@@ -46,5 +46,10 @@ namespace WpfEconomicPlatform
             addCategoryWindow.ShowDialog(); 
             LoadCategories(); 
         }
+
+        private void exit (object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
