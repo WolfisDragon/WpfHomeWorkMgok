@@ -19,14 +19,14 @@ namespace WpfEconomicPlatform
     /// </summary>
     public partial class IncomesOutcomes : Window
     {
-        public IncomesOutcomes()
+        public IncomesOutcomes(int userId)
         {
             InitializeComponent();
         }
 
         private void addIndOut (object send, RoutedEventArgs e)
         {
-            addIncomesOutcomes addIncOutWindow = new addIncomesOutcomes();
+            addIncomesOutcomes addIncOutWindow = new addIncomesOutcomes(CurrentUser.UserId);
             addIncOutWindow.ShowDialog();
         }
 
