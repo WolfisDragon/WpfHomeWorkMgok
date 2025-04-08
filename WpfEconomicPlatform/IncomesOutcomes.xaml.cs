@@ -69,7 +69,7 @@ namespace WpfEconomicPlatform
 
         private void addIndOut (object send, RoutedEventArgs e)
         {
-            addIncomesOutcomes addIncOutWindow = new addIncomesOutcomes();
+            addIncomesOutcomes addIncOutWindow = new addIncomesOutcomes(CurrentUser.UserId);
             addIncOutWindow.ShowDialog();
         }
 

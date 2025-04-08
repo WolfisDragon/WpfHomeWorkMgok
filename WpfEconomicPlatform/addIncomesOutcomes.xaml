@@ -8,15 +8,28 @@
         mc:Ignorable="d"
         Title="Добавление расходов/доходов" Height="330" Width="300">
     <Grid>
-        <ComboBox HorizontalAlignment="Center" Height="22" Margin="0,31,0,0" VerticalAlignment="Top" Width="178">
-            <TextBlock>Доход</TextBlock>
-            <TextBlock>Расход</TextBlock>
+        <ComboBox x:Name="transactionTypeComboBox"
+                  SelectionChanged="transactionTypeComboBox_SelectionChanged"
+                  HorizontalAlignment="Center"
+                  Height="22" 
+                  Margin="0,31,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="178"
+                  ItemsSource="{x:Static local:addIncomesOutcomes.Items}">
         </ComboBox>
-        <TextBox HorizontalAlignment="Center" Margin="0,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="amountTextBox" HorizontalAlignment="Center" Margin="0,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
         <TextBlock HorizontalAlignment="Left" Margin="61,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51"><Run Language="ru-ru" Text="С"/><Run Text="умма"/><Run Text=":"/></TextBlock>
-        <ComboBox HorizontalAlignment="Center" Height="20" Margin="0,129,0,0" VerticalAlignment="Top" Width="178"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="69"/>
-        <Button Content="Готово" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Width="96"/>
+        <ComboBox x:Name="categoryComboBox" 
+          HorizontalAlignment="Center" 
+          Height="20" 
+          Margin="0,129,0,0" 
+          VerticalAlignment="Top" 
+          Width="178" 
+          DisplayMemberPath="Title" 
+          SelectedValuePath="id"/>
+
+        <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Center" Margin="0,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="69"/>
+        <Button Content="Готово" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Width="96" Click="send_IncomesOrOutcomes"/>
         <TextBlock HorizontalAlignment="Left" Margin="61,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Language="ru-ru" Text="К"/><Run Text="атегория:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="61,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Language="ru-ru" Text="О"/><Run Text="писание:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="61,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"><Run Language="ru-ru" Text="доход"/><Run Text="/"/><Run Language="ru-ru" Text="расход"/></TextBlock>
