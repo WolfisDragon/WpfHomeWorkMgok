@@ -17,9 +17,13 @@ namespace WpfEconomicPlatform
             InitializeComponent();
             db = new FinancialPlannerIS322DEntities();
             userId = currentUserId;
-
-            LoadCategories("Доход");
         }
+        public static List<string> Items { get; } = new List<string>
+
+        {
+            "Доход",
+            "Расход"
+        };
 
         public class Category
         {
@@ -76,7 +80,9 @@ namespace WpfEconomicPlatform
 
         private void transactionTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selectedType = transactionTypeComboBox.SelectedItem?.ToString();
+            string selectedType = transactionTypeComboBox.SelectedItem.ToString();
+            
+            MessageBox.Show(selectedType);
 
             if (!string.IsNullOrEmpty(selectedType))
             {
@@ -108,7 +114,7 @@ namespace WpfEconomicPlatform
 
                 if (type == "Доход")
                 {
-                    int categoryId = db.CategoriesIncome.FirstOrDefault(c => c.title == category.TrimStart("Доход: ".ToCharArray()) && c.userId == userId)?.id ?? 0;
+                    int categoryId = db.CategoriesIncome.Where(c=> c.title == category).Select(c=>c.id).FirstOrDefault();
                     if (categoryId == 0) throw new Exception("Категория дохода не найдена.");
 
                     Incomes income = new Incomes
@@ -123,9 +129,9 @@ namespace WpfEconomicPlatform
                 }
                 else if (type == "Расход")
                 {
-                    int categoryId = db.CategoriesOutcome.FirstOrDefault(c => c.title == category.TrimStart("Расход: ".ToCharArray()) && c.userId == userId)?.id ?? 0;
+                    int categoryId = db.CategoriesOutcome.Where(c=> c.title == category).Select(c=>c.id).FirstOrDefault();
                     if (categoryId == 0) throw new Exception("Категория расхода не найдена.");
-
+                
                     Outcomes outcome = new Outcomes
                     {
                         userId = userId,
