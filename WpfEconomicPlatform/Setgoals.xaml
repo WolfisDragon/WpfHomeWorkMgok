@@ -7,13 +7,13 @@
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="задать цель" Height="350" Width="300">
-    <Grid>
-        <TextBox HorizontalAlignment="Center" Height="26" Margin="0,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
-        <TextBox HorizontalAlignment="Center" Height="26" Margin="0,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
-        <TextBlock Margin="50,58,135,0" TextWrapping="Wrap" Text="Задать цель расхода:" Height="16" VerticalAlignment="Top"/>
-        <TextBlock Margin="50,125,140,0" TextWrapping="Wrap" Text="Задать цель дохода:" Height="16" VerticalAlignment="Top"/>
-        <Button Content="Готово" HorizontalAlignment="Left" Height="26" Margin="10,241,0,0" VerticalAlignment="Top" Width="126"/>
-        <Button Content="Назад" HorizontalAlignment="Left" Height="26" Margin="158,241,0,0" VerticalAlignment="Top" Width="126" Click="exit"/>
+    <Grid Background="#6F996D">
+        <TextBox HorizontalAlignment="Center" Height="26" Margin="0,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBox HorizontalAlignment="Center" Height="26" Margin="0,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBlock Margin="50,58,135,0" TextWrapping="Wrap" Text="Задать цель расхода:" Height="16" VerticalAlignment="Top" Foreground="#4A4130"/>
+        <TextBlock Margin="50,125,140,0" TextWrapping="Wrap" Text="Задать цель дохода:" Height="16" VerticalAlignment="Top" Foreground="#4A4130"/>
+        <Button Content="Готово" HorizontalAlignment="Left" Height="26" Margin="10,241,0,0" VerticalAlignment="Top" Width="126" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Height="26" Margin="158,241,0,0" VerticalAlignment="Top" Width="126" Click="exit" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
 
     </Grid>
 </Window>

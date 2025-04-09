@@ -7,15 +7,15 @@
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="Регистрация" Height="300" Width="250">
-    <Grid Height="434" VerticalAlignment="Bottom">
-        <TextBox x:Name="fullNameTextBox" HorizontalAlignment="Left" Height="17" Margin="40,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Margin="40,250,0,0"/>
-        <TextBox x:Name="loginTextBox" HorizontalAlignment="Left" Height="17" Margin="40,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <TextBlock HorizontalAlignment="Left" Margin="43,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Text="ФИО:"/>
-        <TextBlock HorizontalAlignment="Left" Margin="40,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="П"/><Run Text="очта"/><Run Text=":"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="40,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Л"/><Run Language="ru-ru" Text="огин"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Height="17" Margin="40,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <TextBlock HorizontalAlignment="Left" Margin="40,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Пароль"/><Run Text=":"/></TextBlock>
-        <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="79,385,0,0" VerticalAlignment="Top" Width="81" Click="Registration"/>
+    <Grid Height="434" VerticalAlignment="Bottom" Background="#6F996D">
+        <TextBox x:Name="fullNameTextBox" HorizontalAlignment="Left" Height="17" Margin="40,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Margin="40,250,0,0" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBox x:Name="loginTextBox" HorizontalAlignment="Left" Height="17" Margin="40,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBlock HorizontalAlignment="Left" Margin="43,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Text="ФИО:" Foreground="#4A4130" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Foreground="#4A4130" FontSize="16" Text="Почта:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="40,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="Логин:"/></TextBlock>
+        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Height="17" Margin="40,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBlock HorizontalAlignment="Left" Margin="40,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="Пароль:"/></TextBlock>
+        <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="79,385,0,0" VerticalAlignment="Top" Width="81" Click="Registration" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
     </Grid>
 </Window>

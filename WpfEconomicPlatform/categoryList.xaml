@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="Окно категорий" Height="350" Width="400">
-    <Grid>
-        <DataGrid x:Name="categoryGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,165,0"/>
-        <Button Content="Назад" HorizontalAlignment="Left" Margin="280,45,0,0" VerticalAlignment="Top" Width="77" Height="38" Click="exit"/>
-        <Button Content="Добавить&#xD;&#xA;категорию" HorizontalAlignment="Left" Margin="280,162,0,0" VerticalAlignment="Top" Height="41" Width="77" Click="showAddCategoryWindow"/>
+    <Grid Background="#6F996D">
+        <DataGrid x:Name="categoryGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,165,0" Background="#E0D8CB"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="280,45,0,0" VerticalAlignment="Top" Width="77" Height="38" Click="exit" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <Button Content="Добавить&#xD;&#xA;категорию" HorizontalAlignment="Left" Margin="280,162,0,0" VerticalAlignment="Top" Height="41" Width="77" Click="showAddCategoryWindow" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
     </Grid>
 </Window>
