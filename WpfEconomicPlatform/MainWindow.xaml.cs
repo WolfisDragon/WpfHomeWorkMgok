@@ -42,7 +42,7 @@ namespace WpfEconomicPlatform
                 CurrentUser.UserId = user.id;
 
                 // Передаем currentUserId в IncomesOutcomes
-                IncomesOutcomes incomesOutcomesWindow = new IncomesOutcomes(CurrentUser.UserId);
+                IncomesOutcomes incomesOutcomesWindow = new IncomesOutcomes();
                 incomesOutcomesWindow.Show();
                 this.Close();
             }

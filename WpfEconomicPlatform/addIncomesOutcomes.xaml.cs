@@ -13,7 +13,7 @@ namespace WpfEconomicPlatform
 
         public addIncomesOutcomes(int currentUserId)
         {
-            MessageBox.Show("Конструктор вызывается!");
+            // MessageBox.Show("Конструктор вызывается!");
             InitializeComponent();
             db = new FinancialPlannerIS322DEntities();
             userId = currentUserId;
@@ -35,7 +35,7 @@ namespace WpfEconomicPlatform
         {
             try
             {
-                MessageBox.Show("Загрузка категорий началась.");
+                // MessageBox.Show("Загрузка категорий началась.");
 
                 categoryComboBox.ItemsSource = null;
 
@@ -57,7 +57,7 @@ namespace WpfEconomicPlatform
                         .ToList();
                 }
 
-                MessageBox.Show($"Загружено категорий: {categories.Count}");
+                // MessageBox.Show($"Загружено категорий: {categories.Count}");
 
                 if (categories.Any())
                 {
@@ -82,7 +82,7 @@ namespace WpfEconomicPlatform
         {
             string selectedType = transactionTypeComboBox.SelectedItem.ToString();
             
-            MessageBox.Show(selectedType);
+            // MessageBox.Show(selectedType);
 
             if (!string.IsNullOrEmpty(selectedType))
             {

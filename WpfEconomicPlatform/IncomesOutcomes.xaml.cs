@@ -24,11 +24,16 @@ namespace WpfEconomicPlatform
     {
         private FinancialPlannerIS322DEntities entities;
         private int currentUser = CurrentUser.UserId;
-
+        
         public IncomesOutcomes()
         {
             InitializeComponent();
             entities = new FinancialPlannerIS322DEntities();
+            SelectData();
+        }
+
+        void SelectData()
+        {
             var allData = entities
                 .Users
                 .Include(u => u.Incomes)
@@ -65,12 +70,12 @@ namespace WpfEconomicPlatform
                 UserName.Text = userName;
                 DataGridIncomesOutcomes.ItemsSource = result;
             }
-        }
-
+        } 
         private void addIndOut (object send, RoutedEventArgs e)
         {
             addIncomesOutcomes addIncOutWindow = new addIncomesOutcomes(CurrentUser.UserId);
             addIncOutWindow.ShowDialog();
+            SelectData();
         }
 
         private void categoryList (object send, RoutedEventArgs e)
