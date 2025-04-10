@@ -20,7 +20,7 @@ namespace WpfEconomicPlatform
             registrationWindow.ShowDialog();
         }
 
-      private void Auth(object sender, RoutedEventArgs e)
+        private void Auth(object sender, RoutedEventArgs e)
         {
             string login = LoginTextBox.Text.Trim();
             string password = PasswordTextBox.Text.Trim();
@@ -39,10 +39,9 @@ namespace WpfEconomicPlatform
             }
             else
             {
-
                 CurrentUser.UserId = user.id;
 
-
+                // Передаем currentUserId в IncomesOutcomes
                 IncomesOutcomes incomesOutcomesWindow = new IncomesOutcomes();
                 incomesOutcomesWindow.Show();
                 this.Close();

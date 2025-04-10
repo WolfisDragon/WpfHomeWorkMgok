@@ -25,8 +25,8 @@ namespace WpfEconomicPlatform
             {
                 MessageBox.Show("Заполните все поля!");
                 return;
-            }
-
+            } 
+            try {
             if (db.Users.Any(u => u.login == login))
             {
                 MessageBox.Show("Пользователь с таким логином уже существует.");
@@ -39,8 +39,7 @@ namespace WpfEconomicPlatform
                 return;
             }
 
-            try
-            {
+            
 
                 Users newUser = new Users
                 {
@@ -51,7 +50,7 @@ namespace WpfEconomicPlatform
                 };
 
                 db.Users.Add(newUser);
-                db.SaveChanges();
+                // db.SaveChanges();
 
                 int userId = newUser.id;
 
