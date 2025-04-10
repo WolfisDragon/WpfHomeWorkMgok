@@ -30,7 +30,7 @@
                 SelectedValuePath="id"/>
    
         <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Center" Margin="0,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="69" Background="#E0D8CB" BorderBrush="#4A4130"/>
-        <Button Content="Готово" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Width="96" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <Button Content="Готово" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Width="96" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130" Click="send_IncomesOrOutcomes"/>
         <TextBlock HorizontalAlignment="Left" Margin="61,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Foreground="#4A4130" Language="ru-ru" Text="Категория:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="61,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Foreground="#4A4130" Language="ru-ru" Text="Описание:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="61,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"><Run Foreground="#4A4130" Language="ru-ru" Text="доход/расход"/></TextBlock>
