@@ -7,7 +7,7 @@
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="Добавить категорию" Height="350" Width="300">
-    <Grid Margin="10">
+    <Grid Background="#6F996D">
         <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Выберите тип категории:"/>
 
         <!-- Комбо-бокс с правильными элементами -->

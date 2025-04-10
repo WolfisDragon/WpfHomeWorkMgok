@@ -7,13 +7,13 @@
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="Авторизация" Height="250" Width="300">
-    <Grid Height="434" VerticalAlignment="Center">
-        <TextBox x:Name ="LoginTextBox" HorizontalAlignment="Center" Height="19" Margin="0,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
-        <TextBox x:Name ="PasswordTextBox"  HorizontalAlignment="Center" Height="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Margin="0,217,0,0"/>
-        <Button Content="Вход" HorizontalAlignment="Center" Height="24" Margin="0,287,0,0" VerticalAlignment="Top" Width="100" Click="Auth"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru"/><Hyperlink Click="openRegistration">Регистрация</Hyperlink></TextBlock>
-        <TextBlock Margin="72,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" HorizontalAlignment="Left" Width="52"><Run Text="Логин:"/><LineBreak/><Run/></TextBlock>
-        <TextBlock Margin="72,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Пароль:" HorizontalAlignment="Left" Width="52"/>
+    <Grid Height="434" VerticalAlignment="Center" Background="#6F996D">
+        <TextBox x:Name ="LoginTextBox" HorizontalAlignment="Center" Height="19" Margin="0,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBox x:Name ="PasswordTextBox"  HorizontalAlignment="Center" Height="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Margin="0,217,0,0" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <Button Content="Вход" HorizontalAlignment="Center" Height="24" Margin="0,287,0,0" VerticalAlignment="Top" Width="100" Click="Auth" Background="#E0D8CB" Foreground="#4A4130" BorderBrush="#4A4130"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru"/><Hyperlink Foreground="#63E8FF" Click="openRegistration">Регистрация</Hyperlink></TextBlock>
+        <TextBlock Margin="72,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" HorizontalAlignment="Left" Width="52"><Run Foreground="#4A4130" FontSize="16" Text="Логин:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock Margin="72,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Пароль:" HorizontalAlignment="Left" Width="59" Foreground="#4A4130" FontSize="16"/>
 
     </Grid>
 </Window>
