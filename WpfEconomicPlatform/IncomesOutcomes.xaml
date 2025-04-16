@@ -11,16 +11,37 @@
             <ColumnDefinition Width="60*"/>
             <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" Name="DataGridIncomesOutcomes" AutoGenerateColumns="True" ColumnWidth="*" Background="#E0D8CB"/>
+        <DataGrid Grid.Column="0" Name="DataGridIncomesOutcomes" AutoGenerateColumns="False" ColumnWidth="*" Background="#E0D8CB">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Amount}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Category}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ButtonDelete" Click="ButtonDelete_Click" Content="Удалить" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ButtonUpdate" Click="ButtonUpdate_Click" Content="Изменить" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <StackPanel Grid.Column="1" Background="#6F996D">
             <Button Content="Выйти" Margin="0,0,-270,0" Click="exit" Width="60" Height="26" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
-            <TextBlock Margin="0,-30,-75,0" TextWrapping="Wrap" Width="118" Height="16" Name="UserName"><Run Language="ru-ru" Text="имя пользователя" Foreground="#4A4130"/></TextBlock>
+            <TextBlock Margin="0,-30,-75,0" TextWrapping="Wrap" Width="118" Height="16" Name="UserName" Foreground="#4A4130"><Run Language="ru-ru" Text="имя пользователя" /></TextBlock>
             <TextBlock Margin="0,25,70,0" TextWrapping="Wrap" Text="Баланс:" Height="27" Width="74" FontSize="20" Foreground="#63E8FF"/>
-            <TextBlock Margin="0,-28,-130,0" TextWrapping="Wrap" Height="23" Width="118"><Run FontSize="20" Foreground="#63E8FF" Language="ru-ru" Text="10000$"/></TextBlock>
+            <TextBlock Name="TextBlockBalance" Margin="0,-28,-130,0" TextWrapping="Wrap" Height="23" Width="118" FontSize="20" Foreground="#63E8FF"><Run  Language="ru-ru" Text="10000$"/></TextBlock>
             <TextBlock Margin="0,15,210,0" TextWrapping="Wrap" Height="45" Width="62"><Run Foreground="#4A4130" FontSize="16" Text="Цели"/><LineBreak/><Run Foreground="#4A4130" FontSize="16" Text="расхода"/></TextBlock>
             <TextBlock Margin="0,-45,-100,0" TextWrapping="Wrap" Height="43" Width="55"><Run Foreground="#4A4130" FontSize="16" Text="Цели"/><LineBreak/><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="дохода"/></TextBlock>
-            <TextBlock Margin="0,-50,50,0" TextWrapping="Wrap" Height="18" Width="94"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="0/100$"/></TextBlock>
-            <TextBlock Margin="0,-45,-250,0" TextWrapping="Wrap" Height="18" Width="94"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="0/100$"/></TextBlock>
+            <TextBlock Name="TextBlockOutcomes" Margin="0,-50,50,0" TextWrapping="Wrap" Height="18" Width="94"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="0/100$"/></TextBlock>
+            <TextBlock Name="TextBlockIncomes" Margin="0,-45,-250,0" TextWrapping="Wrap" Height="18" Width="94"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="0/100$"/></TextBlock>
             <Button Margin="50,70,0,0" Content=" Добавить&#xA;дох/рас" Click="addIndOut" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
             <Button Margin="210,-43,0,0" Content="Список&#xA;категорий"  Click="categoryList" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
             <Button Margin="50,40,0,0" Content="График"  Click="report" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>

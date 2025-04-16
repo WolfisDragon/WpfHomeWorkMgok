@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -51,22 +52,26 @@ namespace WpfEconomicPlatform
                 
                 result.AddRange(userData.Incomes.Select(i => new IncomesOutcomesDTO
                 {
+                    Id = i.id,
                     Amount = i.amount,
-                    Date = i.date,
+                    Date = i.date.ToString("dd/MM/yyyy HH:mm"),
                     Category = i.CategoriesIncome.title,
                     Type = "Доход"
                 }));
                 
                 result.AddRange(userData.Outcomes.Select(o => new IncomesOutcomesDTO
                 {
+                    Id = o.id,
                     Amount = o.amount,
-                    Date = o.date,
+                    Date = o.date.ToString("dd/MM/yyyy HH:mm"),
                     Category = o.CategoriesOutcome.title,
                     Type = "Расход"
                 }));
 
                 var userName = userData.fullname;
+                var balance = userData.Incomes.Sum(i => i.amount) - userData.Outcomes.Sum(i => i.amount);
                 
+                TextBlockBalance.Text = balance.ToString();
                 UserName.Text = userName;
                 DataGridIncomesOutcomes.ItemsSource = result;
             }
@@ -101,6 +106,34 @@ namespace WpfEconomicPlatform
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = (IncomesOutcomesDTO)DataGridIncomesOutcomes.SelectedItem;
+
+            if (selected.Type == "Расход")
+            {
+                var outcome = entities.Outcomes.FirstOrDefault(i => i.id == selected.Id);
+                entities.Outcomes.Remove(outcome);
+                entities.SaveChanges();
+            }
+            else if(selected.Type == "Доход")
+            {
+                var income = entities.Incomes.FirstOrDefault(i => i.id == selected.Id);
+                entities.Incomes.Remove(income);
+                entities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Ошибка");
+            }
+            SelectData();
+        }
+
+        private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
