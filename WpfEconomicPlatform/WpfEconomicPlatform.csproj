@@ -79,6 +79,12 @@
     <Compile Include="categoryList.xaml.cs">
       <DependentUpon>categoryList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChangeOuting.xaml.cs">
+      <DependentUpon>ChangeOuting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeCategory.xaml.cs">
+      <DependentUpon>ChangeCategory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="entities\IncomesOutcomesDTO.cs" />
     <Compile Include="FinancialPlanner.Context.cs">
       <AutoGen>True</AutoGen>
@@ -131,6 +137,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="categoryList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeOuting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChangeCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
