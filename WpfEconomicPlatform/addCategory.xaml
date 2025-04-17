@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:WpfEconomicPlatform"
         ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="Добавить категорию" Height="350" Width="300">
+        Title="Добавить категорию" Height="250" Width="300">
     <Grid Background="#6F996D">
-        <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Выберите тип категории:"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Выберите тип категории:" Foreground="#FF4A4130"/>
 
         <!-- Комбо-бокс с правильными элементами -->
         <ComboBox x:Name="categoryTypeComboBox" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="150">
@@ -16,9 +16,10 @@
             <ComboBoxItem Content="Расход"/>
         </ComboBox>
 
-        <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Название новой категории:"/>
-        <TextBox x:Name="categoryNameTextBox" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Width="150"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Название новой категории:" Foreground="#FF4A4130"/>
+        <TextBox x:Name="categoryNameTextBox" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Width="150" Background="#E0D8CB" BorderBrush="#4A4130"/>
 
-        <Button Content="Добавить" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Width="80" Click="createCategory"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="177,180,0,0" VerticalAlignment="Top" Width="80" Click="createCategory" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="47,180,0,0" VerticalAlignment="Top" Width="80" Click="exitAddCategory" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
     </Grid>
 </Window>

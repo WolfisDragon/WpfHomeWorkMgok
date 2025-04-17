@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Serialization;
 
 namespace WpfEconomicPlatform
 {
@@ -17,7 +18,13 @@ namespace WpfEconomicPlatform
             db = new FinancialPlannerIS322DEntities();
         }
 
-        
+        private void exitAddCategory (object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+
         private void createCategory(object sender, RoutedEventArgs e)
         {
             
