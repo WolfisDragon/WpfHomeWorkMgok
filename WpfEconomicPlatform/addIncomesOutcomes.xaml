@@ -16,23 +16,24 @@
                   VerticalAlignment="Top" 
                   Width="178"
                   ItemsSource="{x:Static local:addIncomesOutcomes.Items}"/>
-          
-        <TextBox x:Name="amountTextBox" HorizontalAlignment="Center" Margin="0,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Background="#E0D8CB" BorderBrush="#4A4130"/>
-        <TextBlock HorizontalAlignment="Left" Margin="61,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51"><Run Foreground="#4A4130" Text="Сумма:"/></TextBlock>
+
+        <TextBox x:Name="amountTextBox" HorizontalAlignment="Center" Margin="0,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBlock HorizontalAlignment="Left" Margin="61,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51"><Run Foreground="#4A4130" Text="Сумма:"/></TextBlock>
 
         <ComboBox x:Name="categoryComboBox" 
                 HorizontalAlignment="Center" 
                 Height="20" 
-                Margin="0,129,0,0" 
+                Margin="0,84,0,0" 
                 VerticalAlignment="Top" 
                 Width="178" 
                 DisplayMemberPath="Title" 
                 SelectedValuePath="id"/>
-   
+
         <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Center" Margin="0,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="69" Background="#E0D8CB" BorderBrush="#4A4130"/>
-        <Button Content="Готово" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Width="96" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130" Click="send_IncomesOrOutcomes"/>
-        <TextBlock HorizontalAlignment="Left" Margin="61,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Foreground="#4A4130" Language="ru-ru" Text="Категория:"/></TextBlock>
+        <Button Content="Готово" HorizontalAlignment="Left" Margin="187,266,0,0" VerticalAlignment="Top" Width="96" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130" Click="send_IncomesOrOutcomes"/>
+        <TextBlock HorizontalAlignment="Left" Margin="61,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Foreground="#4A4130" Language="ru-ru" Text="Категория:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="61,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.525,-0.474"><Run Foreground="#4A4130" Language="ru-ru" Text="Описание:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="61,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"><Run Foreground="#4A4130" Language="ru-ru" Text="доход/расход"/></TextBlock>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="38,266,0,0" VerticalAlignment="Top" Width="96" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130" Click="exitIncomesOutcomes"/>
     </Grid>
 </Window>

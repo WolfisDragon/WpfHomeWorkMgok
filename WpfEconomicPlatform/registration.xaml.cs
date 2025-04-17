@@ -79,5 +79,10 @@ namespace WpfEconomicPlatform
                 MessageBox.Show("Ошибка регистрации: " + ex.Message);
             }
         }
+
+        private void exitRegistration(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

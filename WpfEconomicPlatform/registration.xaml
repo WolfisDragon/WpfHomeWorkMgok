@@ -16,6 +16,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="40,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="Логин:"/></TextBlock>
         <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Height="17" Margin="40,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Background="#E0D8CB" BorderBrush="#4A4130"/>
         <TextBlock HorizontalAlignment="Left" Margin="40,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="Пароль:"/></TextBlock>
-        <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="79,385,0,0" VerticalAlignment="Top" Width="81" Click="Registration" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="135,387,0,0" VerticalAlignment="Top" Width="81" Click="Registration" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="23,387,0,0" VerticalAlignment="Top" Width="81" Click="exitRegistration" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
     </Grid>
 </Window>

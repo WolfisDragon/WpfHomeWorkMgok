@@ -34,7 +34,13 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Column="1" Background="#6F996D">
-            <Button Content="Выйти" Margin="0,0,-270,0" Click="exit" Width="60" Height="26" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
+            <Button Content="Выйти" Margin="0,0,-270,0" Click="exit" Width="60" Height="26" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130">
+                <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+                </Button.Resources>
+            </Button>
             <TextBlock Margin="0,-30,-75,0" TextWrapping="Wrap" Width="118" Height="16" Name="UserName" Foreground="#4A4130"><Run Language="ru-ru" Text="имя пользователя" /></TextBlock>
             <TextBlock Margin="0,25,70,0" TextWrapping="Wrap" Text="Баланс:" Height="27" Width="74" FontSize="20" Foreground="#63E8FF"/>
             <TextBlock Name="TextBlockBalance" Margin="0,-28,-130,0" TextWrapping="Wrap" Height="23" Width="118" FontSize="20" Foreground="#63E8FF"><Run  Language="ru-ru" Text="10000$"/></TextBlock>

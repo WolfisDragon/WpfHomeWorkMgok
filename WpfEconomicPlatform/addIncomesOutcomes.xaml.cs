@@ -31,6 +31,11 @@ namespace WpfEconomicPlatform
             public string Title { get; set; }
         }
 
+        private void exitIncomesOutcomes (object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void LoadCategories(string transactionType)
         {
             try
