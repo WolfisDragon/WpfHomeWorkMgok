@@ -49,9 +49,8 @@ namespace WpfEconomicPlatform
             var userData = allData.FirstOrDefault();
             if (userData != null)
             {
-
                 var result = new List<IncomesOutcomesDTO>();
-                
+
                 result.AddRange(userData.Incomes.Select(i => new IncomesOutcomesDTO
                 {
                     Id = i.id,
@@ -60,7 +59,7 @@ namespace WpfEconomicPlatform
                     Category = i.CategoriesIncome.title,
                     Type = "Доход"
                 }));
-                
+
                 result.AddRange(userData.Outcomes.Select(o => new IncomesOutcomesDTO
                 {
                     Id = o.id,
@@ -70,24 +69,45 @@ namespace WpfEconomicPlatform
                     Type = "Расход"
                 }));
 
-                var income = userData.Incomes.Sum(i => i.amount);
-                var outcome = userData.Outcomes.Sum(i => i.amount);
-                
-                var incomeSettings = userData.IncomeBudgetSettings.Where(i => i.userId == currentUser).FirstOrDefault();
-                var outcomeSettings = userData.OutcomeBudgetSettings.Where(i => i.userId == currentUser).FirstOrDefault();
-                
-                var userName = userData.fullname;
+                var incomeSetting = userData.IncomeBudgetSettings
+                    .Where(s => s.userId == currentUser && s.dateEnd > DateTime.Now)
+                    .OrderByDescending(s => s.dateStart)
+                    .FirstOrDefault();
+
+                var outcomeSetting = userData.OutcomeBudgetSettings
+                    .Where(s => s.userId == currentUser && s.dateEnd > DateTime.Now)
+                    .OrderByDescending(s => s.dateStart)
+                    .FirstOrDefault();
+
+                var income = (incomeSetting != null)
+                    ? userData.Incomes.Where(i => i.date >= incomeSetting.dateStart).Sum(i => i.amount)
+                    : userData.Incomes.Sum(i => i.amount);
+
+                var outcome = (outcomeSetting != null)
+                    ? userData.Outcomes.Where(o => o.date >= outcomeSetting.dateStart).Sum(o => o.amount)
+                    : userData.Outcomes.Sum(o => o.amount);
+
                 var balance = income - outcome;
-                
-                TextBlockIncomes.Text = $"{income}/{(incomeSettings != null ? incomeSettings.totalAmount.ToString()+"\u20bd" : "N/A")}";
-                TextBlockOutcomes.Text = $"{outcome}/{(outcomeSettings != null ? outcomeSettings.totalAmount.ToString()+"\u20bd" : "N/A")}";
-                
-                TextBlockBalance.Text = $"{balance.ToString()}\u20bd";
-                UserName.Text = userName;
-                
+
+                TextBlockIncomes.Text = $"{income}/{(incomeSetting != null ? incomeSetting.totalAmount + "\u20bd" : "—")}";
+                TextBlockOutcomes.Text = $"{outcome}/{(outcomeSetting != null ? outcomeSetting.totalAmount + "\u20bd" : "—")}";
+                TextBlockBalance.Text = $"{balance}\u20bd";
+
+                UserName.Text = userData.fullname;
                 DataGridIncomesOutcomes.ItemsSource = result;
+
+                if (incomeSetting != null && income >= incomeSetting.totalAmount)
+                {
+                    MessageBox.Show("Поздравляем! Цель по доходам достигнута!", "Цель достигнута", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                if (outcomeSetting != null && outcome >= outcomeSetting.totalAmount)
+                {
+                    MessageBox.Show("Внимание! Вы превысили лимит по расходам.", "Превышение цели", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
-        } 
+        }
+        
         private void addIndOut (object send, RoutedEventArgs e)
         {
             addIncomesOutcomes addIncOutWindow = new addIncomesOutcomes(CurrentUser.UserId);
