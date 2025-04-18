@@ -97,7 +97,7 @@ namespace WpfEconomicPlatform
 
         private void SetGoals (object send, RoutedEventArgs e)
         {
-            Setgoals SetGoalsWindow = new Setgoals();
+            Setgoals SetGoalsWindow = new Setgoals(CurrentUser.UserId);
             SetGoalsWindow.ShowDialog();
         }
  
