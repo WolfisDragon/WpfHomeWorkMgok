@@ -39,6 +39,8 @@ namespace WpfEconomicPlatform
                 .Users
                 .Include(u => u.Incomes)
                 .Include(u => u.Outcomes)
+                .Include(u => u.IncomeBudgetSettings)
+                .Include(u => u.OutcomeBudgetSettings)
                 .Include(u => u.CategoriesIncome)
                 .Include(u => u.CategoriesOutcome)
                 .Where(u => u.id == currentUser)
@@ -68,11 +70,21 @@ namespace WpfEconomicPlatform
                     Type = "Расход"
                 }));
 
-                var userName = userData.fullname;
-                var balance = userData.Incomes.Sum(i => i.amount) - userData.Outcomes.Sum(i => i.amount);
+                var income = userData.Incomes.Sum(i => i.amount);
+                var outcome = userData.Outcomes.Sum(i => i.amount);
                 
-                TextBlockBalance.Text = balance.ToString();
+                var incomeSettings = userData.IncomeBudgetSettings.Where(i => i.userId == currentUser).FirstOrDefault();
+                var outcomeSettings = userData.OutcomeBudgetSettings.Where(i => i.userId == currentUser).FirstOrDefault();
+                
+                var userName = userData.fullname;
+                var balance = income - outcome;
+                
+                TextBlockIncomes.Text = $"{income}/{(incomeSettings != null ? incomeSettings.totalAmount.ToString()+"\u20bd" : "N/A")}";
+                TextBlockOutcomes.Text = $"{outcome}/{(outcomeSettings != null ? outcomeSettings.totalAmount.ToString()+"\u20bd" : "N/A")}";
+                
+                TextBlockBalance.Text = $"{balance.ToString()}\u20bd";
                 UserName.Text = userName;
+                
                 DataGridIncomesOutcomes.ItemsSource = result;
             }
         } 

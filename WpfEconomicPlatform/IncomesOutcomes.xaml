@@ -46,8 +46,8 @@
             <TextBlock Name="TextBlockBalance" Margin="0,-28,-130,0" TextWrapping="Wrap" Height="23" Width="118" FontSize="20" Foreground="#63E8FF"><Run  Language="ru-ru" Text="10000$"/></TextBlock>
             <TextBlock Margin="0,15,210,0" TextWrapping="Wrap" Height="45" Width="62"><Run Foreground="#4A4130" FontSize="16" Text="Цели"/><LineBreak/><Run Foreground="#4A4130" FontSize="16" Text="расхода"/></TextBlock>
             <TextBlock Margin="0,-45,-100,0" TextWrapping="Wrap" Height="43" Width="55"><Run Foreground="#4A4130" FontSize="16" Text="Цели"/><LineBreak/><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="дохода"/></TextBlock>
-            <TextBlock Name="TextBlockOutcomes" Margin="0,-50,50,0" TextWrapping="Wrap" Height="18" Width="94"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="0/100$"/></TextBlock>
-            <TextBlock Name="TextBlockIncomes" Margin="0,-45,-250,0" TextWrapping="Wrap" Height="18" Width="94"><Run Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="0/100$"/></TextBlock>
+            <TextBlock Name="TextBlockOutcomes" Margin="0,-50,50,0" TextWrapping="Wrap" Height="18" Width="94" Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="0/100$"></TextBlock>
+            <TextBlock Name="TextBlockIncomes" Margin="0,-45,-250,0" TextWrapping="Wrap" Height="18" Width="94" Foreground="#4A4130" FontSize="16" Language="ru-ru" Text="0/100$"></TextBlock>
             <Button Margin="50,70,0,0" Content=" Добавить&#xA;дох/рас" Click="addIndOut" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
             <Button Margin="210,-43,0,0" Content="Список&#xA;категорий"  Click="categoryList" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
             <Button Margin="50,40,0,0" Content="График"  Click="report" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
