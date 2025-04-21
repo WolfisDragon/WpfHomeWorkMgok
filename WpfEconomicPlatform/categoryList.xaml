@@ -8,7 +8,26 @@
         ResizeMode="NoResize"
         Title="Окно категорий" Height="350" Width="400">
     <Grid Background="#6F996D">
-        <DataGrid x:Name="categoryGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,165,0" Background="#E0D8CB"/>
+        <DataGrid x:Name="categoryGrid" AutoGenerateColumns="False" Margin="0,0,165,0" Background="#E0D8CB">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Тип}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Название}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ButtonDelete" Click="ButtonDelete_Click" Content="Удалить" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ButtonUpdate" Click="ButtonUpdate_Click" Content="Изменить" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="259,182,0,0" VerticalAlignment="Top" Width="110" Height="22" Click="exit" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
         <Button Content="Добавить&#xD;&#xA;категорию" HorizontalAlignment="Left" Margin="259,102,0,0" VerticalAlignment="Top" Height="33" Width="110" Click="showAddCategoryWindow" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
     </Grid>

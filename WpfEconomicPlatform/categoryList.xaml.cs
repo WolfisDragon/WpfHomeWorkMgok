@@ -51,5 +51,17 @@ namespace WpfEconomicPlatform
         {
             this.Close();
         }
+        
+        //КНОПКА УДАЛИТЬ
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        
+        //КНОПКА ИЗМЕНИТЬ
+        private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
