@@ -4,9 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfEconomicPlatform"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="График Расходов/Доходов" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="1"  Click="UpdateAllOnClick" Width="126" Height="26" Margin="0,0,10,0" Background="#E0D8CB" BorderBrush="#4A4130" Foreground="#4A4130" HorizontalAlignment="Right">
+            выход
+        </Button>
+        <lvc:CartesianChart Name="Chart" Grid.Row="2" Series="{Binding SeriesCollection}" Loaded="Chart_Loaded" >
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Name="Axis">
+                    <lvc:Axis.Sections>
+                        <lvc:AxisSection Value="8.5" StrokeThickness="3" Stroke="#F9D648">
+                            <lvc:AxisSection.Fill>
+                                <SolidColorBrush Color="#A3A3FF" Opacity=".4"></SolidColorBrush>
+                            </lvc:AxisSection.Fill>
+                        </lvc:AxisSection>
+                        <lvc:AxisSection Value="4" SectionWidth="8" Label="Good">
+                            <lvc:AxisSection.Fill>
+                                <SolidColorBrush Color="#CDCDCD" Opacity=".4"></SolidColorBrush>
+                            </lvc:AxisSection.Fill>
+                        </lvc:AxisSection>
+                        <lvc:AxisSection Value="0" SectionWidth="4" Label="Bad">
+                            <lvc:AxisSection.Fill>
+                                <SolidColorBrush Color="#FF8585" Opacity=".4"></SolidColorBrush>
+                            </lvc:AxisSection.Fill>
+                        </lvc:AxisSection>
+                    </lvc:Axis.Sections>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
     </Grid>
 </Window>
