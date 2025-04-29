@@ -91,6 +91,7 @@
     <Compile Include="ChangeCategory.xaml.cs">
       <DependentUpon>ChangeCategory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="entities\CategoryDto.cs" />
     <Compile Include="entities\IncomesOutcomesDTO.cs" />
     <Compile Include="FinancialPlanner.Context.cs">
       <AutoGen>True</AutoGen>
