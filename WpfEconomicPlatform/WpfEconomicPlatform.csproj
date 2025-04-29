@@ -126,9 +126,6 @@
     <Compile Include="registration.xaml.cs">
       <DependentUpon>registration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="reportGraph.xaml.cs">
-      <DependentUpon>reportGraph.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Setgoals.xaml.cs">
       <DependentUpon>Setgoals.xaml</DependentUpon>
     </Compile>
@@ -172,10 +169,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="registration.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="reportGraph.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
