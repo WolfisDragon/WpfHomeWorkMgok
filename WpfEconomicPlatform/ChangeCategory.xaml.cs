@@ -32,26 +32,37 @@ namespace WpfEconomicPlatform
 
             try
             {
-                var category = db.CategoriesIncome.FirstOrDefault(c => c.id == categoryId && c.userId == userId);
+                var incomeCategory = db.CategoriesIncome.FirstOrDefault(c => c.id == categoryId && c.userId == userId);
 
-                if (category != null)
+                if (incomeCategory != null)
                 {
-                    category.title = newCategoryName;
-                    db.SaveChanges();
-
-                    MessageBox.Show("Категория успешно переименована!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                    incomeCategory.title = newCategoryName;
                 }
                 else
                 {
-                    MessageBox.Show("Категория не найдена или нет прав на её изменение.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    var outcomeCategory = db.CategoriesOutcome.FirstOrDefault(c => c.id == categoryId && c.userId == userId);
+
+                    if (outcomeCategory != null)
+                    {
+                        outcomeCategory.title = newCategoryName;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Категория не найдена или нет прав на её изменение.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                 }
+
+                db.SaveChanges();
+                MessageBox.Show("Категория успешно переименована!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при переименовании: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void exitChangeCategory(object sender, RoutedEventArgs e)
         {
