@@ -8,12 +8,12 @@
         ResizeMode="NoResize"
         Title="изменить сумму" Height="300" Width="250">
     <Grid Background="#6F996D">
-        <ComboBox HorizontalAlignment="Center" Height="26" Margin="0,79,0,0" VerticalAlignment="Top" Width="200" Background="#E0D8CB" BorderBrush="#4A4130"/>
-        <TextBox HorizontalAlignment="Center" Height="26" Margin="0,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <ComboBox Name="CategoryComboBox" HorizontalAlignment="Center" Height="26" Margin="0,79,0,0" VerticalAlignment="Top" Width="200" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <TextBox Name="SummTextBox" HorizontalAlignment="Center" Height="26" Margin="0,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Background="#E0D8CB" BorderBrush="#4A4130"/>
         <TextBlock HorizontalAlignment="Left" Margin="31,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.335,0.629"><Run Foreground="#FF4A4130" Text="Выберите категори"/><Run Foreground="#FF4A4130" Language="ru-ru" Text="ю"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="31,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#4A4130"><Run Text="Введите "/><Run Language="ru-ru" Text="сумму"/><Run Text=":"/></TextBlock>
         <Button Content="Назад" Click="exitChangeOuting" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="100" Height="26" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
-        <Button Content="Готово" HorizontalAlignment="Left" Margin="140,227,0,0" VerticalAlignment="Top" Width="100" Height="26" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
+        <Button Content="Готово" Click="readyChangeOuting" HorizontalAlignment="Left" Margin="140,227,0,0" VerticalAlignment="Top" Width="100" Height="26" Foreground="#4A4130" Background="#E0D8CB" BorderBrush="#4A4130"/>
 
     </Grid>
 </Window>

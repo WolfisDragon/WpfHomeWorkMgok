@@ -5,6 +5,7 @@ using System.Data.Entity.Infrastructure.Interception;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfEconomicPlatform.entities;
@@ -28,6 +29,7 @@ namespace WpfEconomicPlatform
 
         void SelectData()
         {
+            DataGridIncomesOutcomes.ItemsSource = null;
             var allData = entities
                 .Users
                 .Include(u => u.Incomes)
@@ -89,15 +91,15 @@ namespace WpfEconomicPlatform
                 UserName.Text = userData.fullname;
                 DataGridIncomesOutcomes.ItemsSource = result;
 
-                if (incomeSetting != null && income >= incomeSetting.totalAmount)
-                {
-                    MessageBox.Show("Поздравляем! Цель по доходам достигнута!", "Цель достигнута", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-
-                if (outcomeSetting != null && outcome >= outcomeSetting.totalAmount)
-                {
-                    MessageBox.Show("Внимание! Вы превысили лимит по расходам.", "Превышение цели", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+                // if (incomeSetting != null && income >= incomeSetting.totalAmount)
+                // {
+                //     MessageBox.Show("Поздравляем! Цель по доходам достигнута!", "Цель достигнута", MessageBoxButton.OK, MessageBoxImage.Information);
+                // }
+                //
+                // if (outcomeSetting != null && outcome >= outcomeSetting.totalAmount)
+                // {
+                //     MessageBox.Show("Внимание! Вы превысили лимит по расходам.", "Превышение цели", MessageBoxButton.OK, MessageBoxImage.Warning);
+                // }
             }
         }
         
@@ -158,7 +160,10 @@ namespace WpfEconomicPlatform
 
         private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            IncomesOutcomesDTO ob = (IncomesOutcomesDTO)DataGridIncomesOutcomes.SelectedItem;
+            ChangeOuting changeOutingWindow = new ChangeOuting(ob);
+            changeOutingWindow.ShowDialog();
+            SelectData();
         }
     }
 }
